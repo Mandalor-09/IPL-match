@@ -18,11 +18,11 @@ from streamlit_folium import folium_static
 
 # Load the datasets (Assuming these files exist in the specified paths)
 # player_dataset = pd.read_excel(r"C:\Users\DELL\OneDrive\Desktop\ml\ipl_project\ipl_dataset\most_runs_average_strikerate.csv")
-match_dataset = pd.read_csv(r"ipl_dataset\matches.csv")
+match_dataset = pd.read_csv(r"ipl_dataset\\matches.csv")
 # deliveries_dataset = pd.read_csv(r"C:\Users\DELL\OneDrive\Desktop\ml\ipl_project\ipl_dataset\deliveries.csv")
 #team_dataset = pd.read_csv(r"C:\Users\DELL\OneDrive\Desktop\ml\ipl_project\ipl_dataset\teams.csv")
 # most_runs = pd.read_csv(r"C:\Users\DELL\OneDrive\Desktop\ml\ipl_project\ipl_dataset\most_runs_average_strikerate.csv")
-teamwise_home_away_db = pd.read_csv(r'ipl_dataset\teamwise_home_and_away.csv')
+teamwise_home_away_db = pd.read_csv(r'ipl_dataset\\teamwise_home_and_away.csv')
 
 # Define the list of available teams and cities (Assuming these are correctly defined)
 teams = ['Sunrisers Hyderabad', 'Mumbai Indians', 'Gujarat Lions', 'Pune Warriors',
