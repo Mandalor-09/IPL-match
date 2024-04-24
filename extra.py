@@ -91,6 +91,74 @@ def best_team(match_dataset):
 
 
 '''
+
+elif sidebar_radio_data == 'Overall Performance':
+    #Team Performance
+    st.header('Team Performance')
+    performance = best_team(match_dataset)
+    fig = px.bar(performance, x='Team', y=['Total Matches', 'win_matches'], barmode='group', 
+                 title='Best Franchies', color_discrete_map={'Total Matches': 'blue', 'win_matches': 'green'})
+    
+    fig.update_layout(
+        width=800,  # Adjust the width as needed
+        height=500,  # Adjust the height as needed
+        yaxis_title='Matches',  # Set the y-axis label to 'Matches'
+    )
+    st.plotly_chart(fig)
+
+    pie_df = performance
+    fig = px.pie(pie_df, values='win_matches', names='Team', title='Winning Ratio')
+    fig.update_layout(
+        width=800,  # Adjust the width as needed
+        height=500,  # Adjust the height as needed
+    )
+    st.plotly_chart(fig)
+
+
+    fig = px.bar(teamwise_home_away_db, x='team', y=['home_matches', 'home_wins', 'away_matches', 'away_wins'], barmode='group',
+             title='Home/Away wins', color_discrete_map={
+                 'home_matches': 'blue',
+                 'home_wins': 'lightblue',
+                 'away_matches': 'green',
+                 'away_wins': 'lightgreen'
+             })
+
+    # Update the layout to change the y-axis label to 'Matches'
+    fig.update_layout(
+        width=800,  # Adjust the width as needed
+        height=500,  # Adjust the height as needed
+        yaxis_title='Matches',  # Set the y-axis label to 'Matches'
+        legend_title='Matches',  # Set the legend title to 'Matches'
+    )
+
+    # Display the Plotly chart using Streamlit
+    st.plotly_chart(fig)
+
+    fig1 = px.pie(teamwise_home_away_db, values='home_win_percentage', names='team', title='Home Winning Chances')
+    fig1.update_layout(
+        width=500,  # Adjust the width as needed
+        height=500,  # Adjust the height as needed
+    )
+
+    # Create the second pie chart for Away Winning Ratio
+    fig2 = px.pie(teamwise_home_away_db, values='away_win_percentage', names='team', title='Away Winning Chances')
+    fig2.update_layout(
+        width=500,  # Adjust the width as needed
+        height=500,  # Adjust the height as needed
+    )
+
+    # Display the pie charts side by side in Streamlit
+    st.plotly_chart(fig1, use_container_width=True)
+    st.plotly_chart(fig2, use_container_width=True)
+teams = ['Sunrisers Hyderabad', 'Mumbai Indians', 'Gujarat Lions', 'Pune Warriors',
+         'Royal Challengers Bangalore', 'Kolkata Knight Riders', 'Delhi Capitals',
+         'Kings XI Punjab', 'Chennai Super Kings', 'Rajasthan Royals']
+
+
+
+
+
+
 if sidebar_radio_data == 'Team Performance':
 
     team = st.selectbox('Select Your Team',teams)
